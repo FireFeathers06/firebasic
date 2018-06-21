@@ -340,4 +340,4 @@ async def on_ready():
 bot.add_cog(BAdmin())
 bot.add_cog(BAmath())
 bot.add_cog(BAsics())
-bot.run('Mzk0MDgwMjg2NDYxMjYzODcz.DR_HsQ.89tKj4wdFFqJhQHwQrtX8aOIq_A')
+bot.run(os.environ('TOKEN'))
