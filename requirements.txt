@@ -1,0 +1,9 @@
+discord
+discord
+aiohttp
+git+https://github.com/Rapptz/discord.py@rewrite
+google
+urbandictionary
+googletrans
+pokedex.py
+pillow
