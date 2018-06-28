@@ -315,17 +315,15 @@ async def on_command_error(ctx, err):
 
 @bot.event
 async def on_member_join(member):
-    if member.guild.id == 415818038433284108:
-        await member.add_roles((discord.utils.get(member.guild.roles, name='Pokemon Trainer')), atomic=True)
-    if member.guild.id == 447337220895145996:
-        channel = bot.get_channel(461733026288631819)
-        await channel.edit(name=f'Member Count: {len(member.guild.members)}')
+        if member.guild.id == 447337220895145996:
+            channel = member.guild.get_channel(461733026288631819)
+            await channel.edit(name=f'Member Count: {len(member.guild.members)}')
 
 
 @bot.event
 async def on_member_leave(member):
     if member.guild.id == 447337220895145996:
-        channel = bot.get_channel(461733026288631819)
+        channel = member.guild.get_channel(461733026288631819)
         await channel.edit(name=f'Member Count: {len(member.guild.members)}')
 
 
