@@ -321,7 +321,7 @@ async def on_member_join(member):
 
 
 @bot.event
-async def on_member_leave(member):
+async def on_member_remove(member):
     if member.guild.id == 447337220895145996:
         channel = member.guild.get_channel(461733026288631819)
         await channel.edit(name=f'Member Count: {len(member.guild.members)}')
