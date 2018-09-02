@@ -147,7 +147,6 @@ class BAmath():
         else:
             from math import factorial
             await ctx.send(f'''The factorial of {num} is : ```{factorial(num)}```''')
-
     @commands.command()
     async def add(self, ctx, num: int, num2: int):
         ': Add two numbers'
@@ -283,7 +282,7 @@ class BAdmin():
 @bot.command(hidden = True)
 async def code(ctx, command):
         ''': getting the code for command'''
-        
+
         a = inspect.getsource(bot.get_command(command).callback)
         embed = discord.Embed(title='Code', description="```py\n"+a+"```",color=discord.Colour.dark_purple())
         embed.set_thumbnail(url='https://scontent.fdel3-1.fna.fbcdn.net/v/t1.0-9/20155639_1952222755056855_6450365686627691750_n.png?oh=0b2c4ecd1409396b05f71c31dd07dd2d&oe=5AE7B998')
@@ -315,15 +314,15 @@ async def on_command_error(ctx, err):
 
 @bot.event
 async def on_member_join(member):
-        if member.guild.id == 447337220895145996:
-            channel = member.guild.get_channel(461733026288631819)
+        if member.guild.id == 453472827526479874:
+            channel = member.guild.get_channel(485835315194363925)
             await channel.edit(name=f'Member Count: {len(member.guild.members)}')
 
 
 @bot.event
 async def on_member_remove(member):
-    if member.guild.id == 447337220895145996:
-        channel = member.guild.get_channel(461733026288631819)
+    if member.guild.id == 453472827526479874:
+        channel = member.guild.get_channel(485835315194363925)
         await channel.edit(name=f'Member Count: {len(member.guild.members)}')
 
 
@@ -332,6 +331,8 @@ async def on_message(msg):
     if 'firebasic' in msg.content.lower():
         await msg.channel.send('Yup I am here!!')
     await bot.process_commands(msg)
+
+
 
 
 @bot.event
