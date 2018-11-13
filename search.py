@@ -57,7 +57,7 @@ class BAsearch():
             r = s
             for link in links:
                 r = r.replace('[' + link + ']', '[{}]({})'.format(
-                    link, ('http://www.urbandictionary.com/define.php?term=' +
+                    link, ('http://api.urbandictionary.com/v0/define?term=' +
                            link.replace(' ', '+').lower().replace('-', ''))))
             return r
 
@@ -69,7 +69,7 @@ class BAsearch():
                     colour=discord.Colour.dark_purple(),
                     description=f'''{linkify(a.definition)}''',
                     url=
-                    f'''https://www.urbandictionary.com/define.php?term={word}'''
+                    f'''http://api.urbandictionary.com/v0/define?term={word}'''
                 )
                 embed.add_field(
                     name='Examples', value=f'''{linkify(a.example)}''')
@@ -89,9 +89,9 @@ class BAsearch():
                     title=f'\U0001f4d6 {word}',
                     colour=discord.Colour.dark_purple(),
                     description=
-                    f'''{a.definition[:1960]}[...continue reading](https://www.urbandictionary.com/define.php?term={word})''',
+                    f'''{a.definition[:1960]}[...continue reading](http://api.urbandictionary.com/v0/define?term={word})''',
                     url=
-                    f'''https://www.urbandictionary.com/define.php?term={word}'''
+                    f'''http://api.urbandictionary.com/v0/define?term={word}'''
                 )
                 embed.add_field(
                     name='Examples', value=f'''{linkify(a.example)}''')
