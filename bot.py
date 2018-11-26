@@ -308,16 +308,19 @@ async def reload(ctx, extension):
 async def addb(ctx, date):
     try:
         datetime.datetime.strptime(date, '%d-%m-%Y')
-        try:
-            conn = sqlite3.connect('bday.db')
-            conn.execute(f'''INSERT INTO BIRTH (ID, NAME, DATE) VALUES({ctx.author.id}, "{ctx.author.name}", "{date}");''')
-            await ctx.send("Your Birthday has been added")
-            conn.commit()
-        except:
-            await ctx.send("You have already added your birthday")
-            conn.close()
+        if datetime.datetime.strptime(date, '%Y') >= datetime.datetime.now().year:
+            try:
+                conn = sqlite3.connect('bday.db')
+                conn.execute(f'''INSERT INTO BIRTH (ID, NAME, DATE) VALUES({ctx.author.id}, "{ctx.author.name}", "{date}");''')
+                await ctx.send("Your Birthday has been added")
+                conn.commit()
+            except:
+                await ctx.send("You have already added your birthday")
+                conn.close()
+        else:
+            await ctx.send("Sorry kid you aren't born yet")
     except ValueError:
-        await ctx.send("That's not a valid fate format")
+        await ctx.send("That's not a valid date format")
 
 @bot.command(hidden=True)
 async def show(ctx):
