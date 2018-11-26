@@ -303,8 +303,8 @@ async def reload(ctx, extension):
     else:
         await ctx.send("```You can't do it buddy you better know it```")
         
-@bot.command()
-async def add(ctx, date):
+@bot.command(hidden=True)
+async def addb(ctx, date):
     conn = sqlite3.connect('bday.db')
     try:
         conn.execute(f'''INSERT INTO BIRTH (ID, NAME, DATE) VALUES({ctx.author.id}, "{ctx.author.name}", "{date}");''')
