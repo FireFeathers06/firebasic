@@ -306,14 +306,18 @@ async def reload(ctx, extension):
         
 @bot.command(hidden=True)
 async def addb(ctx, date):
-    conn = sqlite3.connect('bday.db')
     try:
-        conn.execute(f'''INSERT INTO BIRTH (ID, NAME, DATE) VALUES({ctx.author.id}, "{ctx.author.name}", "{date}");''')
-        await ctx.send("Your Birthday has been added")
-        conn.commit()
-    except:
-        await ctx.send("You have already added your birthday")
-    conn.close()
+        datetime.datetime.strptime(date_text, '%d-%m-%Y')
+        try:
+            conn = sqlite3.connect('bday.db')
+            conn.execute(f'''INSERT INTO BIRTH (ID, NAME, DATE) VALUES({ctx.author.id}, "{ctx.author.name}", "{date}");''')
+            await ctx.send("Your Birthday has been added")
+            conn.commit()
+        except:
+            await ctx.send("You have already added your birthday")
+            conn.close()
+    except ValueError:
+        await ctx.send("That's not a valid fate format")
 
 @bot.command(hidden=True)
 async def show(ctx):
