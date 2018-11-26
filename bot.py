@@ -315,6 +315,15 @@ async def addb(ctx, date):
         await ctx.send("You have already added your birthday")
     conn.close()
 
+@bot.command()
+async def show(ctx):
+    conn = sqlite3.connect('bday.db')
+    a = conn.execute('''SELECT * FROM BIRTH''')
+    for i in a:
+        await ctx.send(f"```diff\n- ID: {i[0]}\n+ NAME: {i[1]}\n+ DATE: {i[2]}")
+    conn.close()
+
+    
 @bot.event
 async def on_command_error(ctx, err):
     if ctx.guild.id == 394087011641851905:
