@@ -367,7 +367,7 @@ async def on_ready():
     bot.load_extension("fun")
     bot.load_extension("search")
     bot.load_extension('ExampleRepl')
-    options = ('help via f!help', 'to !👑!Fire Feathers!👑!#2636', f'on {len(bot.guilds)} servers')
+    options = ('help via f!help', 'to !👑!Fire Feathers!👑!#8265', f'on {len(bot.guilds)} servers')
     while True:
         await bot.change_presence(activity=discord.Streaming(name=random.choice(options), url='https://www.twitch.tv/cohhcarnage'))
         await asyncio.sleep(10)
