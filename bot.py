@@ -7,6 +7,7 @@ import io
 import re
 import asyncio
 import random
+import sqlite3
 from discord.ext import commands
 from PIL import Image, ImageDraw, ImageFont
 
