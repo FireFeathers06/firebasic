@@ -307,7 +307,7 @@ async def reload(ctx, extension):
 @bot.command(hidden=True)
 async def addb(ctx, date):
     try:
-        datetime.datetime.strptime(date_text, '%d-%m-%Y')
+        datetime.datetime.strptime(date, '%d-%m-%Y')
         try:
             conn = sqlite3.connect('bday.db')
             conn.execute(f'''INSERT INTO BIRTH (ID, NAME, DATE) VALUES({ctx.author.id}, "{ctx.author.name}", "{date}");''')
