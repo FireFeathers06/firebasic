@@ -302,7 +302,17 @@ async def reload(ctx, extension):
             await ctx.send("```No such extention exists```")
     else:
         await ctx.send("```You can't do it buddy you better know it```")
-
+        
+@bot.command()
+async def add(ctx, date):
+    conn = sqlite3.connect('bday.db')
+    try:
+        conn.execute(f'''INSERT INTO BIRTH (ID, NAME, DATE) VALUES({ctx.author.id}, "{ctx.author.name}", "{date}");''')
+        await ctx.send("Your Birthday has been added")
+        conn.commit()
+    except:
+        await ctx.send("You have already added your birthday")
+    conn.close()
 
 @bot.event
 async def on_command_error(ctx, err):
