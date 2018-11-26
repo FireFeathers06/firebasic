@@ -320,7 +320,7 @@ async def show(ctx):
     conn = sqlite3.connect('bday.db')
     a = conn.execute('''SELECT * FROM BIRTH''')
     for i in a:
-        await ctx.send(f"```diff\n- ID: {i[0]}\n+ NAME: {i[1]}\n+ DATE: {i[2]}")
+        await ctx.send(f"```diff\n- ID: {i[0]}\n+ NAME: {i[1]}\n+ DATE: {i[2]}```")
     conn.close()
 
     
