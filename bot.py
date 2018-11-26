@@ -7,7 +7,7 @@ import io
 import re
 import asyncio
 import random
-import sqlite3
+import psycopg2
 from discord.ext import commands
 from PIL import Image, ImageDraw, ImageFont
 
@@ -303,29 +303,6 @@ async def reload(ctx, extension):
             await ctx.send("```No such extention exists```")
     else:
         await ctx.send("```You can't do it buddy you better know it```")
-        
-@bot.command(hidden=True)
-async def addb(ctx, date):
-    try:
-        datetime.datetime.strptime(date, '%d-%m')
-        try:
-            conn = sqlite3.connect('bday.db')
-            conn.execute(f'''INSERT INTO BIRTH (ID, NAME, DATE) VALUES({ctx.author.id}, "{ctx.author.name}", "{date}");''')
-            await ctx.send("Your Birthday has been added")
-            conn.commit()
-        except:
-            await ctx.send("You have already added your birthday")
-            conn.close()
-    except ValueError:
-        await ctx.send("That's not a valid date format")
-
-@bot.command(hidden=True)
-async def show(ctx):
-    conn = sqlite3.connect('bday.db')
-    a = conn.execute('''SELECT * FROM BIRTH''')
-    for i in a:
-        await ctx.send(f"```diff\n- ID: {i[0]}\n+ NAME: {i[1]}\n+ DATE: {i[2]}```")
-    conn.close()
 
     
 @bot.event
