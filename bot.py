@@ -315,7 +315,7 @@ async def addb(ctx, date):
         await ctx.send("You have already added your birthday")
     conn.close()
 
-@bot.command()
+@bot.command(hidden=True)
 async def show(ctx):
     conn = sqlite3.connect('bday.db')
     a = conn.execute('''SELECT * FROM BIRTH''')
