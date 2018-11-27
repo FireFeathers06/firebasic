@@ -7,7 +7,6 @@ import io
 import re
 import asyncio
 import random
-import psycopg2
 from discord.ext import commands
 from PIL import Image, ImageDraw, ImageFont
 
