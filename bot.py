@@ -347,6 +347,7 @@ async def on_ready():
 
 
 bot.add_cog(BAdmin())
+bot.add_cog(DiscordBotsOrgAPI)
 bot.add_cog(BAmath())
 bot.add_cog(BAsics())
 bot.run(os.getenv('TOKEN'))
