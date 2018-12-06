@@ -7,3 +7,4 @@ urbandictionary
 googletrans
 pokedex.py
 pillow
+dblpy
