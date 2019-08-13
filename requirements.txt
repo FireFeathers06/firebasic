@@ -1,6 +1,6 @@
 discord
 aiohttp
-discord.py-1.0.0a
+git+https://github.com/Rapptz/discord.py@rewrite
 google
 urbandictionary
 googletrans
