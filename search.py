@@ -10,7 +10,7 @@ import urllib.request
 import urllib.parse
 
 
-class BAsearch():
+class BAsearch(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
