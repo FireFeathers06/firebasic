@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 bot = commands.Bot(description='BAsics can do a lot more.....', command_prefix=commands.when_mentioned_or('f!'))
 
 
-class BAsics():
+class BAsics(commands.Cog):
 
     @commands.command()
     async def owner(self, ctx):
@@ -135,7 +135,7 @@ class BAsics():
 
 
 
-class BAmath():
+class BAmath(commands.Cog):
 
     @commands.command()
     async def fact(self, ctx, num: int):
@@ -171,7 +171,7 @@ class BAmath():
             i = i + 1
 
 
-class BAdmin():
+class BAdmin(commands.Cog):
 
     @commands.command()
     async def kick(self, ctx, member: discord.Member, *, reason):
